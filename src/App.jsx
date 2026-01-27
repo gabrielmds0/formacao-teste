@@ -25,7 +25,16 @@ function App() {
   
   // Hook do modal de captura de leads
   const { isModalOpen, modalSource, closeModal, handleCTAClick } = useLeadModal();
-  
+   useEffect(() => {
+    const script = document.createElement('script');
+    script.src = 'https://t.contentsquare.net/uxa/89e8860f4d474.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(script);
+    };
+  }, []);
   useEffect(() => {
     captureUtmParams();
   }, []);
