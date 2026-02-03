@@ -30,7 +30,7 @@ function App() {
   // Inicializa o Google Analytics 4
   useEffect(() => {
     // SUBSTITUA '[SEU_MEASUREMENT_ID]' pelo seu ID real do Google Analytics (formato: G-XXXXXXXXXX)
-    ReactGA.initialize('G-XXXXXXXXXX'); // TODO: Substituir pelo Measurement ID real
+    ReactGA.initialize('G-9KS3R2F2WG'); // TODO: Substituir pelo Measurement ID real
   }, []);
 
   useEffect(() => {
