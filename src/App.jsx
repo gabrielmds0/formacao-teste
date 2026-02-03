@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import ReactGA from 'react-ga4';
 import Hero from './sections/Hero';
 import TargetAudience from './sections/TargetAudience';
 import Problem from './sections/Problem';
@@ -25,7 +26,14 @@ function App() {
   
   // Hook do modal de captura de leads
   const { isModalOpen, modalSource, closeModal, handleCTAClick } = useLeadModal();
-   useEffect(() => {
+
+  // Inicializa o Google Analytics 4
+  useEffect(() => {
+    // SUBSTITUA '[SEU_MEASUREMENT_ID]' pelo seu ID real do Google Analytics (formato: G-XXXXXXXXXX)
+    ReactGA.initialize('G-XXXXXXXXXX'); // TODO: Substituir pelo Measurement ID real
+  }, []);
+
+  useEffect(() => {
     const script = document.createElement('script');
     script.src = 'https://t.contentsquare.net/uxa/89e8860f4d474.js';
     script.async = true;

@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, User, Mail, Phone, Send, Heart, Award, AlertCircle } from 'lucide-react';
 import { useGoogleSheetsCheckout } from '../hooks/useGoogleSheetsCheckout';
-import { saveFormData, buildTrackedUrl } from '../hooks/useTracking'; // 👈 NOVO IMPORT
+import { saveFormData, buildTrackedUrl, getCaptureData } from '../hooks/useTracking';
+import { useFormTracking } from '../hooks/useFormTracking';
 
 const LeadCaptureModal = ({ isOpen, onClose, source = 'CTA' }) => {
   // Busca a URL de checkout da planilha
@@ -19,6 +20,23 @@ const LeadCaptureModal = ({ isOpen, onClose, source = 'CTA' }) => {
   const [errors, setErrors] = useState({});
   const [countdown, setCountdown] = useState(3);
 
+  // Refs para rastreamento de tempo
+  const pageLoadTime = useRef(Date.now());
+  const modalOpenTime = useRef(null);
+
+  // Hook de rastreamento
+  const {
+    trackFormStart,
+    trackFormValidationError,
+    trackFormDataCaptured,
+    trackFormSubmit,
+    trackFormSuccess,
+    trackFormError,
+    trackFormRedirect,
+  } = useFormTracking({
+    formName: 'lead_form_modal',
+  });
+
   // Reset form when modal opens
   useEffect(() => {
     if (isOpen) {
@@ -32,19 +50,23 @@ const LeadCaptureModal = ({ isOpen, onClose, source = 'CTA' }) => {
       setErrors({});
       setSubmitted(false);
       setCountdown(3);
-      
-      // Track modal open event
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'lead_modal_open', {
-          event_category: 'Lead Generation',
-          event_label: source,
-          custom_parameters: {
-            modal_source: source
-          }
-        });
-      }
+
+      // Salva timestamp de abertura do modal para calcular tempo de preenchimento
+      modalOpenTime.current = Date.now();
+
+      // Rastrear quando o modal é aberto
+      const captureData = getCaptureData(pageLoadTime.current, null);
+      trackFormStart({
+        page_path: captureData.page_path,
+        utm_source: captureData.utm_source,
+        utm_campaign: captureData.utm_campaign,
+        time_on_site_seconds: captureData.time_on_site_seconds,
+        device_type: captureData.device_type,
+        is_returning_visitor: captureData.is_returning_visitor,
+        modal_source: source,
+      });
     }
-  }, [isOpen, source]);
+  }, [isOpen, source, trackFormStart]);
 
   // Handle redirect after successful submission
   useEffect(() => {
@@ -65,24 +87,15 @@ const LeadCaptureModal = ({ isOpen, onClose, source = 'CTA' }) => {
 
       // Set redirect after 3 seconds
       redirectTimeout = setTimeout(() => {
-        // 👇 MODIFICADO: Usar buildTrackedUrl para adicionar UTMs e dados do form
+        // Usar buildTrackedUrl para adicionar UTMs e dados do form
         const trackedUrl = buildTrackedUrl(checkoutUrl);
-        
+
         console.log('URL original:', checkoutUrl);
         console.log('URL com tracking:', trackedUrl);
-        
+
         // Track redirect event
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'lead_form_redirect', {
-            event_category: 'Lead Generation',
-            event_label: 'Success Redirect',
-            custom_parameters: {
-              redirect_url: trackedUrl,
-              form_source: formData.source
-            }
-          });
-        }
-        
+        trackFormRedirect(trackedUrl);
+
         window.location.href = trackedUrl;
       }, 3000);
     }
@@ -91,22 +104,12 @@ const LeadCaptureModal = ({ isOpen, onClose, source = 'CTA' }) => {
       if (countdownInterval) clearInterval(countdownInterval);
       if (redirectTimeout) clearTimeout(redirectTimeout);
     };
-  }, [submitted, checkoutUrl, formData.source]);
+  }, [submitted, checkoutUrl, trackFormRedirect]);
 
   // Close modal on ESC key
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === 'Escape' && isOpen) {
-        // Track modal close event
-        if (typeof gtag !== 'undefined') {
-          gtag('event', 'lead_modal_close', {
-            event_category: 'Lead Generation',
-            event_label: 'ESC Key',
-            custom_parameters: {
-              close_method: 'escape_key'
-            }
-          });
-        }
         onClose();
       }
     };
@@ -125,17 +128,6 @@ const LeadCaptureModal = ({ isOpen, onClose, source = 'CTA' }) => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
-
-  // Get UTM parameters from URL
-  const getUtmParams = () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    return {
-      utm_source: urlParams.get('utm_source') || sessionStorage.getItem('utm_source') || '',
-      utm_campaign: urlParams.get('utm_campaign') || sessionStorage.getItem('utm_campaign') || '',
-      utm_medium: urlParams.get('utm_medium') || sessionStorage.getItem('utm_medium') || '',
-      utm_content: urlParams.get('utm_content') || sessionStorage.getItem('utm_content') || '',
-    };
-  };
 
   const validateForm = () => {
     const newErrors = {};
@@ -176,18 +168,6 @@ const LeadCaptureModal = ({ isOpen, onClose, source = 'CTA' }) => {
         [name]: ''
       }));
     }
-
-    // Track form interaction
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'form_field_interaction', {
-        event_category: 'Lead Generation',
-        event_label: name,
-        custom_parameters: {
-          field_name: name,
-          form_source: formData.source
-        }
-      });
-    }
   };
 
   const handlePhoneChange = (e) => {
@@ -218,42 +198,67 @@ const LeadCaptureModal = ({ isOpen, onClose, source = 'CTA' }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       // Track validation error
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'form_validation_error', {
-          event_category: 'Lead Generation',
-          event_label: Object.keys(errors).join(', '),
-          custom_parameters: {
-            validation_errors: Object.keys(errors),
-            form_source: formData.source
-          }
-        });
-      }
+      trackFormValidationError(Object.keys(errors));
       return;
     }
 
     setIsSubmitting(true);
 
     try {
+      // Capturar TODOS os dados de tracking
+      const captureData = getCaptureData(pageLoadTime.current, modalOpenTime.current);
+
       // Preparar dados para envio - baseado no código n8n fornecido
-      const utmParams = getUtmParams();
       const sitePath = typeof window !== 'undefined' ? window.location.pathname : '';
       const payload = {
         nome: formData.name,
         telefone: formData.phone,
         email: formData.email,
         tempo_de_formado: formData.graduationTime,
-        utm_source: utmParams.utm_source || 'direct',
-        utm_campaign: utmParams.utm_campaign || 'formacao_paciente_grave',
-        utm_medium: utmParams.utm_medium || 'website',
-        utm_content: utmParams.utm_content || formData.source,
+        utm_source: captureData.utm_source,
+        utm_campaign: captureData.utm_campaign,
+        utm_medium: captureData.utm_medium,
+        utm_content: captureData.utm_content || formData.source,
         site_path: sitePath,
         tag: `lead_cf_fpg`
       };
 
       console.log('Enviando payload:', payload);
+
+      // Rastrear dados capturados
+      trackFormDataCaptured({
+        name: formData.name,
+        phone: formData.phone,
+        email: formData.email,
+        graduationTime: formData.graduationTime,
+        utm_source: captureData.utm_source,
+        utm_medium: captureData.utm_medium,
+        utm_campaign: captureData.utm_campaign,
+        fbclid: captureData.fbclid,
+        gclid: captureData.gclid,
+        device_type: captureData.device_type,
+        time_on_site_seconds: captureData.time_on_site_seconds,
+        form_fill_time_seconds: captureData.form_fill_time_seconds,
+        day_of_week: captureData.day_of_week,
+        time_of_day: captureData.time_of_day,
+        session_id: captureData.session_id,
+        visit_count: captureData.visit_count,
+        is_returning_visitor: captureData.is_returning_visitor,
+      });
+
+      // Rastrear submissão
+      trackFormSubmit({
+        form_name: 'lead_form_modal',
+        utm_source: captureData.utm_source,
+        utm_campaign: captureData.utm_campaign,
+        device_type: captureData.device_type,
+        time_on_site_seconds: captureData.time_on_site_seconds,
+        form_fill_time_seconds: captureData.form_fill_time_seconds,
+        is_returning_visitor: captureData.is_returning_visitor,
+      });
 
       // Enviar para n8n webhook
       const response = await fetch('https://projetolm-n8n.8x0hqh.easypanel.host/webhook/e2033142-b528-46ff-9fe9-82100695342c', {
@@ -271,52 +276,44 @@ const LeadCaptureModal = ({ isOpen, onClose, source = 'CTA' }) => {
       // CORREÇÃO: Verificar se a resposta é JSON antes de fazer parse
       let responseData;
       const contentType = response.headers.get('content-type');
-      
+
       if (contentType && contentType.includes('application/json')) {
         responseData = await response.json();
       } else {
         // Se não for JSON, pegar como texto
         responseData = await response.text();
       }
-      
+
       console.log('Resposta do webhook:', responseData);
 
-      // 👇 NOVO: Salvar dados do formulário no sessionStorage para usar na URL
+      // Salvar dados do formulário no sessionStorage para usar na URL
       saveFormData({
         name: formData.name,
         email: formData.email,
         phone: formData.phone
       });
 
-      // GA4 Event tracking - LEAD SUBMIT SUCCESS
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'lead_form_submit_success', {
-          event_category: 'Lead Generation',
-          event_label: formData.source,
-          value: 1,
-          custom_parameters: {
-            lead_source: formData.source,
-            lead_email: formData.email,
-            form_type: 'modal',
-            utm_source: utmParams.utm_source,
-            utm_campaign: utmParams.utm_campaign,
-            utm_medium: utmParams.utm_medium
-          },
-        });
-
-        // Enhanced Ecommerce Event
-        gtag('event', 'generate_lead', {
-          currency: 'BRL',
-          value: 100, // Valor estimado do lead
-          items: [{
-            item_id: 'fpg_lead',
-            item_name: 'FPG Lead',
-            item_category: 'Medical Course',
-            quantity: 1,
-            price: 100
-          }]
-        });
-      }
+      // Rastrear sucesso
+      trackFormSuccess({
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        graduationTime: formData.graduationTime,
+        utm_source: captureData.utm_source,
+        utm_medium: captureData.utm_medium,
+        utm_campaign: captureData.utm_campaign,
+        fbclid: captureData.fbclid,
+        gclid: captureData.gclid,
+        device_type: captureData.device_type,
+        time_on_site_seconds: captureData.time_on_site_seconds,
+        form_fill_time_seconds: captureData.form_fill_time_seconds,
+        day_of_week: captureData.day_of_week,
+        time_of_day: captureData.time_of_day,
+        hour_of_day: captureData.hour_of_day,
+        session_id: captureData.session_id,
+        visit_count: captureData.visit_count,
+        is_returning_visitor: captureData.is_returning_visitor,
+      });
 
       // Facebook Pixel tracking (se você usar)
       if (typeof fbq !== 'undefined') {
@@ -329,41 +326,19 @@ const LeadCaptureModal = ({ isOpen, onClose, source = 'CTA' }) => {
       }
 
       setSubmitted(true);
-      
-      // Note: Removed the auto-close timeout since we now redirect
 
     } catch (error) {
       console.error('Erro ao enviar lead:', error);
       setErrors({ submit: 'Erro ao enviar formulário. Verifique sua conexão e tente novamente.' });
-      
-      // GA4 Error tracking
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'lead_form_submit_error', {
-          event_category: 'Lead Generation',
-          event_label: 'Submit Error',
-          custom_parameters: {
-            error_message: error.message,
-            form_source: formData.source,
-            error_type: 'network_error'
-          }
-        });
-      }
+
+      // Track error
+      trackFormError(error);
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleClose = () => {
-    // Track modal close event
-    if (typeof gtag !== 'undefined') {
-      gtag('event', 'lead_modal_close', {
-        event_category: 'Lead Generation',
-        event_label: 'Close Button',
-        custom_parameters: {
-          close_method: 'close_button',
-        }
-      });
-    }
     onClose();
   };
 
