@@ -34,12 +34,11 @@ const Bonuses = () => {
                 </div>
                 
                 <h3 className="text-2xl font-black text-white mb-4 tracking-tight">
-                  Checkpoint RS Intangível
+                  Checkpoint
                 </h3>
-                
+
                 <p className="text-white/90 leading-relaxed font-light mb-8">
-                  Guia exclusivo com todos os principais parâmetros vitais, laboratoriais e de imagem. 
-                  Formato digital e imprimível para consulta rápida durante atendimentos.
+                  Encontros semanais ao vivo para discussão de casos e tira dúvidas com especialistas nas áreas
                 </p>
                 
                 <div className="border-t border-white/20 pt-6">
@@ -60,12 +59,11 @@ const Bonuses = () => {
                 </div>
                 
                 <h3 className="text-2xl font-black text-white mb-4 tracking-tight">
-                  Guia Paciente Grave
+                  Guia do Paciente Grave
                 </h3>
-                
+
                 <p className="text-white/90 leading-relaxed font-light mb-8">
-                  Manual prático com 12 protocolos essenciais: PCR, choque, sepse, TEP, AVC. 
-                  Inclui fluxogramas, doses de medicamentos e critérios de UTI.
+                  4 Masterclasses online que vão fazer você dominar os 3 tipos de pacientes mais graves do seu plantão
                 </p>
                 
                 <div className="border-t border-white/20 pt-6">

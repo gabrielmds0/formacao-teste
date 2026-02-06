@@ -181,7 +181,7 @@ const Hero = ({ handleCTAClick }) => {
                 </div>
                 <div className="text-center md:text-left">
                   <div className="text-white font-semibold">Pagamento Flexível</div>
-                  <div className="text-gray-400 text-sm">Pix, Cartão ou Boleto</div>
+                  <div className="text-gray-400 text-sm">Pix ou Cartão</div>
                 </div>
               </div>
             </div>
