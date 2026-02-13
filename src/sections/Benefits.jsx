@@ -31,7 +31,7 @@ const Benefits = ({ handleCTAClick }) => {
                 <Shield size={28} className="text-white" />
               </div>
               <h3 className="font-black text-xl text-black mb-4 tracking-tight">
-                Deixar de ser um médico pela metade
+                Completar sua formação prática para plantões
               </h3>
               <p className="text-gray-700 leading-relaxed font-light">
                 Complete sua formação com as habilidades práticas que a faculdade não ensinou.
