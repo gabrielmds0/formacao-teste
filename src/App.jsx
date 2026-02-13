@@ -43,9 +43,11 @@ function App() {
       document.head.removeChild(script);
     };
   }, []);
+
   useEffect(() => {
     captureUtmParams();
   }, []);
+
   // Mostrar o botão flutuante quando o usuário rolar além de certa altura
   useEffect(() => {
     const handleScroll = () => {
