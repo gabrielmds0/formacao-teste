@@ -63,7 +63,7 @@ const Offer = ({handleCTAClick}) => {
                 </Button>
               </div>
               
-              {/* Benefícios destacados */}
+              {/* Benefícios destacados */
               <div className="grid md:grid-cols-3 gap-8 mb-10">
                 <div className="text-center">
                   <div className="w-16 h-16 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
@@ -94,11 +94,11 @@ const Offer = ({handleCTAClick}) => {
               <div className="bg-red-50 rounded-xl p-6 border-l-4 border-red-600">
                 <div className="flex items-center justify-center space-x-3 mb-3">
                   <Clock size={20} className="text-red-600" />
-                  <span className="font-bold text-red-600">TURMA COM CONDIÇÃO DE LANÇAMENTO</span>
+                  <span className="font-bold text-red-600">VAGAS LIMITADAS</span>
                 </div>
                 <p className="text-gray-700">
-                  Condição de lançamento válida por tempo limitado e sujeita à virada de lote. 
-                  Garanta sua participação enquanto esta condição estiver disponível.
+                  Esta condição especial é válida apenas para os primeiros interessados. 
+                  Garante sua vaga antes que seja tarde.
                 </p>
               </div>
             </div>
