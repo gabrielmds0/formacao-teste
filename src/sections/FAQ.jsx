@@ -10,6 +10,10 @@ const FAQ = () => {
       answer: "O curso é ideal para estudantes de medicina do último ano, médicos recém-formados e profissionais com qualquer tempo de experiência que desejam se sentir mais seguros e preparados para atender pacientes graves."
     },
     {
+      question: "Como funciona a garantia de 7 dias?",
+      answer: "Se por qualquer motivo você não ficar satisfeito com o curso, pode solicitar o reembolso integral em até 7 dias após a compra. É simples, rápido e sem burocracia."
+    },
+    {
       question: "Preciso ter experiência prévia em emergência para fazer o curso?",
       answer: "Não é necessário ter experiência prévia. O curso foi desenvolvido justamente para preparar médicos que ainda não se sentem seguros no atendimento de emergência, fornecendo desde os conceitos básicos até técnicas avançadas."
     },
@@ -24,10 +28,6 @@ const FAQ = () => {
     {
       question: "Posso fazer o curso pelo celular ou tablet?",
       answer: "Sim, a plataforma é totalmente responsiva e funciona perfeitamente em computadores, tablets e smartphones. Você pode estudar onde e quando quiser, com sincronização automática do seu progresso."
-    },
-    {
-      question: "Como funciona a garantia de 7 dias?",
-      answer: "Se por qualquer motivo você não ficar satisfeito com o curso, pode solicitar o reembolso integral em até 7 dias após a compra. É simples, rápido e sem burocracia."
     },
     {
       question: "Há suporte para dúvidas durante o curso?",
