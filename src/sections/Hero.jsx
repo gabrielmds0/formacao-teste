@@ -146,7 +146,7 @@ const Hero = ({ handleCTAClick }) => {
               {/* Efeito de brilho */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-1000"></div>
               <span className="relative z-10 flex items-center justify-center">
-                “Quero garantir minha vaga agora”
+                Transformar minha carreira
                 <ArrowRight size={24} className="ml-3" />
               </span>
             </Button>
@@ -160,7 +160,7 @@ const Hero = ({ handleCTAClick }) => {
                   <Check size={20} className="text-white" />
                 </div>
                 <div className="text-center md:text-left">
-                  <div className="text-white font-semibold">100% Online</div>
+                  <div className="text-white font-semibold">100% Online e ao Vivo</div>
                   <div className="text-gray-400 text-sm">Acesse de qualquer lugar</div>
                 </div>
               </div>
