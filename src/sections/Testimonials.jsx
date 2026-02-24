@@ -96,30 +96,6 @@ const Testimonials = () => {
               </div>
             </div>
             
-            {/* Depoimento 4 */}
-            <div className="bg-gray-50 rounded-2xl p-8 relative">
-              <div className="text-red-600/20 text-6xl font-black mb-6 leading-none">"</div>
-              <blockquote className="text-gray-800 text-lg leading-relaxed font-light mb-8">
-                Os protocolos e checklists são fantásticos. Uso direto nos plantões e já salvaram muitas vidas. Investimento que se paga rapidamente.
-              </blockquote>
-              
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center">
-                  <UserCheck size={20} className="text-white" />
-                </div>
-                <div>
-                  <h4 className="font-bold text-black">Dra. Mariana Lopes</h4>
-                  <p className="text-gray-600 text-sm">Médica Plantonista - PR</p>
-                </div>
-              </div>
-              
-              <div className="flex space-x-1 mt-4">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} size={16} className="text-red-600" fill="currentColor" />
-                ))}
-              </div>
-            </div>
-            
             {/* Depoimento 5 */}
             <div className="bg-gray-50 rounded-2xl p-8 relative">
               <div className="text-red-600/20 text-6xl font-black mb-6 leading-none">"</div>
