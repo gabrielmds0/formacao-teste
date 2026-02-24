@@ -12,15 +12,15 @@ const Methodology = () => {
             <div className="inline-flex items-center justify-center w-20 h-20 bg-red-600 rounded-2xl mb-8">
               <X size={40} className="text-white" />
             </div>
-            <h2 className="text-5xl md:text-6xl font-black text-black mb-8 leading-tight tracking-tight">
+            <h2 className="text-5xl md:text-6xl font-black text-black mb-4 leading-tight tracking-tight">
               O seu paciente <span className="text-red-600">não é um boneco</span>
             </h2>
+            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6">
+              “Metodologia validada por mais de 50 hospitais em todo o Brasil”
+            </p>
             <div className="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
               Nossa metodologia revolucionária usa casos reais para formar médicos realmente preparados
-            </p>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto mt-4">
-              “Metodologia validada por mais de 50 hospitais em todo o Brasil”
             </p>
           </div>
           
