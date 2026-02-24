@@ -92,10 +92,10 @@ const Hero = ({ handleCTAClick }) => {
           
           {/* Subtítulo unificado e mais impactante */}
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 md:mb-12 max-w-4xl leading-relaxed font-light">
-            Domine <strong className="text-red-600 font-semibold">Raciocínio Clínico</strong>,
-            <strong className="text-red-600 font-semibold"> Prescrição</strong> e
-            <strong className="text-red-600 font-semibold"> Procedimentos</strong> com casos reais filmados em hospitais de
-            referência.
+            Tenha confiança para fazer <strong className="text-red-600 font-semibold">Raciocínio Clínico</strong>, 
+            a <strong className="text-red-600 font-semibold">Prescrição Médica</strong> e 
+            os <strong className="text-red-600 font-semibold">Procedimentos Salvadores de Vida </strong> 
+            na emergência médica.
           </p>
           
           {/* VÍDEO - YouTube embed mantendo estética */}
@@ -144,9 +144,9 @@ const Hero = ({ handleCTAClick }) => {
               className=" cursor-pointer heartbeat bg-red-600 hover:bg-red-700 text-white font-black text-xl px-12 py-5 rounded-2xl transition-all duration-300 w-full border-0 shadow-2xl hover:shadow-red-600/25 relative overflow-hidden"
             >
               {/* Efeito de brilho */}
-              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-1000"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duração-1000"></div>
               <span className="relative z-10 flex items-center justify-center">
-                Transformar minha carreira
+                “Quero garantir minha vaga agora”
                 <ArrowRight size={24} className="ml-3" />
               </span>
             </Button>
