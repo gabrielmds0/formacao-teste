@@ -19,6 +19,9 @@ const Methodology = () => {
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
               Nossa metodologia revolucionária usa casos reais para formar médicos realmente preparados
             </p>
+            <p className="text-lg text-gray-500 max-w-2xl mx-auto mt-4">
+              “Metodologia validada por mais de 50 hospitais em todo o Brasil”
+            </p>
           </div>
           
           {/* Layout principal */}
