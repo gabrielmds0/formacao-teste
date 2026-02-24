@@ -86,16 +86,16 @@ const Hero = ({ handleCTAClick }) => {
           
           {/* Título principal melhorado */}
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-6 md:mb-8 leading-tight tracking-tight">
-            A formacao definitiva para o{' '}
+            Domine qualquer{' '}
             <span className="text-red-600 block sm:inline">Paciente Grave</span>
           </h1>
           
           {/* Subtítulo unificado e mais impactante */}
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 md:mb-12 max-w-4xl leading-relaxed font-light">
-            Tenha confiança para fazer <strong className="text-red-600 font-semibold">Raciocínio Clínico</strong>, 
-            a <strong className="text-red-600 font-semibold">Prescrição Médica</strong> e 
-            os <strong className="text-red-600 font-semibold">Procedimentos Salvadores de Vida </strong> 
-            na emergência médica.
+            Domine <strong className="text-red-600 font-semibold">Raciocínio Clínico</strong>,
+            <strong className="text-red-600 font-semibold"> Prescrição</strong> e
+            <strong className="text-red-600 font-semibold"> Procedimentos</strong> com casos reais filmados em hospitais de
+            referência.
           </p>
           
           {/* VÍDEO - YouTube embed mantendo estética */}
@@ -145,7 +145,7 @@ const Hero = ({ handleCTAClick }) => {
             >
               {/* Efeito de brilho */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full hover:translate-x-full transition-transform duration-1000"></div>
-              <span className="relative z-10 flex itens-center justify-center">
+              <span className="relative z-10 flex items-center justify-center">
                 Transformar minha carreira
                 <ArrowRight size={24} className="ml-3" />
               </span>
