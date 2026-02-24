@@ -31,7 +31,7 @@ const Benefits = ({ handleCTAClick }) => {
                 <Shield size={28} className="text-white" />
               </div>
               <h3 className="font-black text-xl text-black mb-4 tracking-tight">
-                Completar sua formação prática para plantões
+                Deixar de ser um médico pela metade
               </h3>
               <p className="text-gray-700 leading-relaxed font-light">
                 Complete sua formação com as habilidades práticas que a faculdade não ensinou.
@@ -78,7 +78,7 @@ const Benefits = ({ handleCTAClick }) => {
             </div>
             
             {/* Benefício 5 */}
-            <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duração-300">
               <div className="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center mb-6">
                 <Award size={28} className="text-white" />
               </div>
@@ -91,7 +91,7 @@ const Benefits = ({ handleCTAClick }) => {
             </div>
             
             {/* Benefício 6 */}
-            <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duração-300">
               <div className="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center mb-6">
                 <TrendingUp size={28} className="text-white" />
               </div>
