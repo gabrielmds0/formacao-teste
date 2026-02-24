@@ -19,7 +19,7 @@ const FAQ = () => {
     },
     {
       question: "O curso oferece certificado?",
-      answer: "Sim, ao concluir o curso você recebe um certificado de participação que pode ser usado para comprovação de atividades de educação continuada e desenvolvimento profissional."
+      answer: "Sim! Voce recebe certificado digital com carga horaria de 120 horas, aceito em todo o Brasil para comprovacao de horas complementares."
     },
     {
       question: "Posso fazer o curso pelo celular ou tablet?",

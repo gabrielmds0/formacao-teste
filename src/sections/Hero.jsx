@@ -160,7 +160,7 @@ const Hero = ({ handleCTAClick }) => {
                   <Check size={20} className="text-white" />
                 </div>
                 <div className="text-center md:text-left">
-                  <div className="text-white font-semibold">100% Online</div>
+                  <div className="text-white font-semibold">100% Online e ao Vivo</div>
                   <div className="text-gray-400 text-sm">Acesse de qualquer lugar</div>
                 </div>
               </div>

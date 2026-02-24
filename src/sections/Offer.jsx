@@ -78,7 +78,7 @@ const Offer = ({handleCTAClick}) => {
                     <CalendarClock size={32} className="text-red-600" />
                   </div>
                   <h4 className="font-bold text-lg text-black mb-2">Acesso Completo</h4>
-                  <p className="text-gray-600">1 ano de acesso ilimitado</p>
+                  <p className="text-gray-600">2 anos de acesso ilimitado</p>
                 </div>
                 
                 <div className="text-center">

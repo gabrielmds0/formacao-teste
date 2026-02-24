@@ -138,7 +138,7 @@ const Modules = ({ handleCTAClick }) => {
                 className="bg-gray-100 hover:bg-gray-200 text-black px-8 py-4 rounded-xl font-semibold transition-colors duration-300 flex items-center space-x-3 mx-auto"
               >
                 <Plus size={20} />
-                <span>Ver mais módulos do curso</span>
+                <span>Ver grade completa</span>
               </button>
             </div>
           )}

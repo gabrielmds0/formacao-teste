@@ -209,24 +209,6 @@ const Differential = () => {
               </div>
             </div>
             
-            {/* Card 7 */}
-            <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-16 h-16 opacity-10">
-                <Users size={64} className="text-white" />
-              </div>
-              <div className="flex items-start space-x-6 relative z-10">
-                <div className="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center flex-shrink-0">
-                  <Users size={24} className="text-white" />
-                </div>
-                <div>
-                  <h3 className="font-bold text-xl text-white mb-3">Comunidade Exclusiva</h3>
-                  <p className="text-white/90 leading-relaxed">
-                    Networking e discussão de casos com outros profissionais
-                  </p>
-                </div>
-              </div>
-            </div>
-            
             {/* Card 8 */}
             <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-16 h-16 opacity-10">

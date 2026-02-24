@@ -78,7 +78,7 @@ const Benefits = ({ handleCTAClick }) => {
             </div>
             
             {/* Benefício 5 */}
-            <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duração-300">
               <div className="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center mb-6">
                 <Award size={28} className="text-white" />
               </div>
@@ -91,7 +91,7 @@ const Benefits = ({ handleCTAClick }) => {
             </div>
             
             {/* Benefício 6 */}
-            <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duration-300">
+            <div className="bg-white rounded-2xl p-8 hover:shadow-lg transition-shadow duração-300">
               <div className="w-14 h-14 bg-red-600 rounded-2xl flex items-center justify-center mb-6">
                 <TrendingUp size={28} className="text-white" />
               </div>

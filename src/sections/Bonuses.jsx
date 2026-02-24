@@ -25,32 +25,7 @@ const Bonuses = () => {
           {/* Grid de bônus */}
           <div className="grid md:grid-cols-3 gap-8 mb-20">
             
-            {/* Bônus 1 */}
-            <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16"></div>
-              <div className="relative z-10">
-                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
-                  <FileCheck size={32} className="text-white" />
-                </div>
-                
-                <h3 className="text-2xl font-black text-white mb-4 tracking-tight">
-                  Checkpoint
-                </h3>
-
-                <p className="text-white/90 leading-relaxed font-light mb-8">
-                  Encontros semanais ao vivo para discussão de casos e tira dúvidas com especialistas nas áreas
-                </p>
-                
-                <div className="border-t border-white/20 pt-6">
-                  <div className="bg-white/20 rounded-lg px-4 py-2 inline-block">
-                    <span className="font-bold text-white text-lg">INCLUSO</span>
-                    <span className="text-white/80 ml-1">no seu curso</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Bônus 2 */}
+            {/* Bônus 1 - Guia do Paciente Grave */}
             <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16"></div>
               <div className="relative z-10">
@@ -75,7 +50,32 @@ const Bonuses = () => {
               </div>
             </div>
             
-            {/* Bônus 3 */}
+            {/* Bônus 2 - Checkpoint */}
+            <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16"></div>
+              <div className="relative z-10">
+                <div className="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mb-6">
+                  <FileCheck size={32} className="text-white" />
+                </div>
+                
+                <h3 className="text-2xl font-black text-white mb-4 tracking-tight">
+                  Checkpoint
+                </h3>
+
+                <p className="text-white/90 leading-relaxed font-light mb-8">
+                  Encontros semanais ao vivo para discussão de casos e tira dúvidas com especialistas nas áreas
+                </p>
+                
+                <div className="border-t border-white/20 pt-6">
+                  <div className="bg-white/20 rounded-lg px-4 py-2 inline-block">
+                    <span className="font-bold text-white text-lg">INCLUSO</span>
+                    <span className="text-white/80 ml-1">no seu curso</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Bônus 3 - Cashback Pós-graduação */}
             <div className="bg-gradient-to-br from-red-600 to-red-700 rounded-2xl p-8 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full -translate-y-16 translate-x-16"></div>
               <div className="relative z-10">
