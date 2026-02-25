@@ -86,7 +86,7 @@ const Hero = ({ handleCTAClick }) => {
           
           {/* Título principal melhorado */}
           <h1 className="text-3xl sm:text-4xl md:text-6xl font-black text-white mb-6 md:mb-8 leading-tight tracking-tight">
-            Domine qualquer{' '}
+            A formação definitiva para o{' '}
             <span className="text-red-600 block sm:inline">Paciente Grave</span>
           </h1>
           
