@@ -92,9 +92,10 @@ const Hero = ({ handleCTAClick }) => {
           
           {/* Subtítulo unificado e mais impactante */}
           <p className="text-lg sm:text-xl md:text-2xl text-gray-300 mb-10 md:mb-12 max-w-4xl leading-relaxed font-light">
-            Domine <strong className="text-red-600 font-semibold">Raciocínio Clínico</strong>, 
-            <strong className="text-red-600 font-semibold">Prescrição</strong> e 
-            <strong className="text-red-600 font-semibold">Procedimentos</strong> com casos reais filmados em hospitais de referência.
+            Tenha confiança para fazer <strong className="text-red-600 font-semibold">Raciocínio Clínico</strong>, 
+            a <strong className="text-red-600 font-semibold">Prescrição Médica</strong> e 
+            os <strong className="text-red-600 font-semibold">Procedimentos Salvadores de Vida </strong> 
+            na emergência médica.
           </p>
           
           {/* VÍDEO - YouTube embed mantendo estética */}
@@ -169,8 +170,8 @@ const Hero = ({ handleCTAClick }) => {
                   <Clock size={20} className="text-white" />
                 </div>
                 <div className="text-center md:text-left">
-                  <div className="text-white font-semibold">1 Ano de Acesso</div>
-                  <div className="text-gray-400 text-sm">Revise quando quiser</div>
+                  <div className="text-white font-semibold">2 Anos de Acesso</div>
+                  <div className="text-gray-400 text-sm">O dobro de tempo para revisar</div>
                 </div>
               </div>
               
