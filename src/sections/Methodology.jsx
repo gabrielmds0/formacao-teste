@@ -16,7 +16,7 @@ const Methodology = () => {
               O seu paciente <span className="text-red-600">não é um boneco</span>
             </h2>
             <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed mb-6">
-              “Metodologia validada por mais de 50 hospitais em todo o Brasil”
+              Metodologia validada por mais de 50 hospitais em todo o Brasil
             </p>
             <div className="w-24 h-1 bg-red-600 mx-auto mb-8"></div>
             <p className="text-2xl text-gray-600 max-w-4xl mx-auto font-light leading-relaxed">
