@@ -149,7 +149,7 @@ const Testimonials = () => {
           <div className="bg-black rounded-2xl p-12 text-center">
             <div className="max-w-4xl mx-auto">
               <h3 className="text-3xl md:text-4xl font-black text-white mb-8 tracking-tight">
-                Mais de <span className="text-red-600">5.000 médicos</span> já transformaram suas carreiras
+                Mais de <span className="text-red-600">6.500 médicos</span> já transformaram suas carreiras
               </h3>
               
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -158,7 +158,7 @@ const Testimonials = () => {
                   <p className="text-gray-300">Taxa de satisfação</p>
                 </div>
                 <div>
-                  <div className="text-5xl font-black text-red-600 mb-3">5.000+</div>
+                  <div className="text-5xl font-black text-red-600 mb-3">6.500+</div>
                   <p className="text-gray-300">Médicos formados</p>
                 </div>
                 <div>
