@@ -95,7 +95,7 @@ const Modules = ({ handleCTAClick }) => {
             </div>
            
             <div className="bg-gray-50 rounded-xl p-6 text-center">
-              <div className="text-3xl font-black text-red-600 mb-2">1 ano</div>
+              <div className="text-3xl font-black text-red-600 mb-2">2 anos</div>
               <p className="text-gray-600 font-medium">Acesso</p>
             </div>
              <div className="bg-gray-50 rounded-xl p-6 text-center">
