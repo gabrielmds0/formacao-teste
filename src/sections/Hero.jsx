@@ -170,8 +170,8 @@ const Hero = ({ handleCTAClick }) => {
                   <Clock size={20} className="text-white" />
                 </div>
                 <div className="text-center md:text-left">
-                  <div className="text-white font-semibold">1 Ano de Acesso</div>
-                  <div className="text-gray-400 text-sm">Revise quando quiser</div>
+                  <div className="text-white font-semibold">2 Anos de Acesso</div>
+                  <div className="text-gray-400 text-sm">O dobro de tempo para revisar</div>
                 </div>
               </div>
               
