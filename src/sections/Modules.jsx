@@ -86,7 +86,7 @@ const Modules = ({ handleCTAClick }) => {
           {/* Stats rápidas */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-16">
             <div className="bg-gray-50 rounded-xl p-6 text-center">
-              <div className="text-3xl font-black text-red-600 mb-2">40+</div>
+              <div className="text-3xl font-black text-red-600 mb-2">48</div>
               <p className="text-gray-600 font-medium">Módulos</p>
             </div>
             <div className="bg-gray-50 rounded-xl p-6 text-center">
